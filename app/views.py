@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from .models import Car
 
-# Create your views here.
+def list_cars(request):  
+    cars = Car.objects.all()
+    return render(request, 'list_cars.html', {'cars': cars})
+
+def create_car(request):
+    return render(request, 'create_car.html')
